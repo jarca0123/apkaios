@@ -24,6 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		493DBEA52F0A83360053ED0E /* nejskutecnejsiprojekt.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = nejskutecnejsiprojekt.xctestplan; sourceTree = "<group>"; };
 		D4E9CEB82EA4E2CF00AB8B84 /* nejskutecnejsiprojekt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nejskutecnejsiprojekt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4E9CEC52EA4E2D000AB8B84 /* nejskutecnejsiprojektTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nejskutecnejsiprojektTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4E9CECF2EA4E2D000AB8B84 /* nejskutecnejsiprojektUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nejskutecnejsiprojektUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +76,7 @@
 		D4E9CEAF2EA4E2CF00AB8B84 = {
 			isa = PBXGroup;
 			children = (
+				493DBEA52F0A83360053ED0E /* nejskutecnejsiprojekt.xctestplan */,
 				D4E9CEBA2EA4E2CF00AB8B84 /* nejskutecnejsiprojekt */,
 				D4E9CEC82EA4E2D000AB8B84 /* nejskutecnejsiprojektTests */,
 				D4E9CED22EA4E2D000AB8B84 /* nejskutecnejsiprojektUITests */,
@@ -171,7 +173,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2600;
-				LastUpgradeCheck = 2600;
+				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					D4E9CEB72EA4E2CF00AB8B84 = {
 						CreatedOnToolsVersion = 26.0;
@@ -327,6 +329,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -383,6 +386,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};

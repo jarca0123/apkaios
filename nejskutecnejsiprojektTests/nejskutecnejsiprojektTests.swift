@@ -2,35 +2,59 @@
 //  nejskutecnejsiprojektTests.swift
 //  nejskutecnejsiprojektTests
 //
-//  Created by Jaroslav Bělák on 19.10.2025.
+//  Main test file - imports all test suites
 //
 
 import XCTest
 @testable import nejskutecnejsiprojekt
 
+@MainActor
 final class nejskutecnejsiprojektTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    // MARK: - App Launch Test
+    
+    func testAppLaunches() throws {
+        // Basic sanity check that the app module is accessible
+        XCTAssertNotNil(PersistenceService.shared)
+        XCTAssertNotNil(ThemeManager.shared)
+        XCTAssertNotNil(HapticsService.shared)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    // MARK: - Model Tests
+    
+    func testPostModelDecodable() throws {
+        let json = """
+        {
+            "id": 1,
+            "userId": 1,
+            "title": "Test Title",
+            "body": "Test Body"
         }
+        """
+        
+        let data = json.data(using: .utf8)!
+        let post = try JSONDecoder().decode(Post.self, from: data)
+        
+        XCTAssertEqual(post.id, 1)
+        XCTAssertEqual(post.title, "Test Title")
+        XCTAssertEqual(post.body, "Test Body")
     }
-
+    
+    func testGomokuPlayerEnum() {
+        XCTAssertEqual(Player.black.opponent, .white)
+        XCTAssertEqual(Player.white.opponent, .black)
+    }
+    
+    func testGameDifficultyValues() {
+        XCTAssertGreaterThan(GameDifficulty.easy.flappyGapHeight, GameDifficulty.hard.flappyGapHeight)
+        XCTAssertLessThan(GameDifficulty.easy.flappySpeed, GameDifficulty.hard.flappySpeed)
+    }
+    
+    func testBoardPositionConversion() {
+        let position = BoardPosition(row: 3, col: 5)
+        let index = position.toIndex(boardSize: 15)
+        let convertedBack = BoardPosition.fromIndex(index, boardSize: 15)
+        
+        XCTAssertEqual(position, convertedBack)
+    }
 }
